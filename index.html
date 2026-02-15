@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Expense-tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="brand-name"><i class="fa-solid fa-shekel-sign icon"></i> EXPENSO</div>
+            <div class="nav-links">
+                <a href="">Home</a>
+                <a href="">Dashoard</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="income-container">
+                <div class="income">
+                    <div class="heading">Balance</div>
+                    <div class="val" id="balance">$ 100</div>
+                </div>
+                <div class="income">
+                    <div class="heading">Income</div>
+                    <div class="val" id="income">$ 100</div>
+                </div>
+                <div class="income">
+                    <div class="heading">Expenses</div>
+                    <div class="val" id="expenses">$ 100</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="myChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        </div>
+        <div class="feature">
+            <div class="transactions">
+
+                <div class="heading2">Transactions history</div>
+            </div>
+            <div class="add">
+                <div class="container">
+                    <div class="heading2">Add transactions</div>
+                </div>
+                <div class="inputs">
+                    <div class="heading-3">Add desciption</div>
+                    <input type="text" class="input" placeholder="Enter desciption" id="description">
+                    <div class="heading-3">Enter amount</div>
+                    <input type="text" class="input" placeholder="Enter amount" id="amount">
+                </div>
+                <div class="add-btn">Add</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
