@@ -5,54 +5,64 @@
     max-width: 100%;
     color: white;
 }
+
 body {
     background-color: black;
 }
-.nav{
+
+.nav {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
 }
-.brand-name{
+
+.brand-name {
     font-size: 1.3rem;
     font-weight: 800;
     color: #1ee0a9;
 }
-.icon{
+
+.icon {
     color: #1ee0a9;
     font-size: 1rem;
 }
-.nav-links{
+
+.nav-links {
     display: flex;
     gap: 3rem;
 }
-.nav-links a{
+
+.nav-links a {
     text-decoration: none;
     font-weight: 600;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.main-container{
+
+.main-container {
     height: 40vh;
     width: 70%;
     background-color: #1b1a1ab7;
     margin-top: 2rem;
     border-radius: 6px;
     position: relative;
-    
-}
-.chart-container{
-    width: 40%;
-    height: 90%;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+
 }
 
-.income-container{
+.chart-container {
+    width: 40%;
+    height: 70%;
+    position: absolute;
+    right: 1rem;
+    top: 3rem;
+}
+
+
+.income-container {
     width: 60%;
     height: 100%;
     display: flex;
@@ -60,26 +70,37 @@ main{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    
+
 }
-.income{
+
+.income {
     border-radius: 6px;
     height: 70px;
     width: 200px;
     background-color: #2c2c2cb7;
     position: relative;
+    display: flex;
 }
-.heading{
+
+.heading {
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     font-weight: 600;
     color: #1ee0a9;
 }
-.val{
+
+.val {
     font-size: 1.2rem;
     position: absolute;
     right: 1rem;
+    bottom: 1rem;
 }
-.feature{
+.symbol{
+    position: absolute;
+    right: 4rem;
+    bottom: 1.2rem;
+}
+
+.feature {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -87,51 +108,97 @@ main{
     margin-top: 2rem;
     gap: 1rem;
 }
-.transactions{
+
+.transactions {
     height: 42vh;
     width: 35%;
-    background-color: #1b1a1ab7;    
+    background-color: #1b1a1ab7;
 }
-.add{
+
+.add {
     width: 35%;
     height: 42vh;
     background-color: #1b1a1ab7;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
-.container{
+
+.container {
     width: 100%;
 }
-.heading2{
+
+.heading2 {
     color: #1ee0a9;
     margin-top: 1rem;
-   margin-left: 1rem;
+    margin-left: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
 }
-.inputs{
+
+.inputs {
+    width: 100%;
+}
+
+.inputEl{
     width: 100%;
     margin-left: 1rem;
 }
-.heading-3{
-    margin-top: 2.5rem;
+
+
+.heading-3 {
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     color: #dddada;
 }
-.input{
+
+.type {
+    color: #8a8a8a;
+    margin-bottom: 0.5rem;
+}
+
+.radio-btns {
+    margin-top: 1rem;
+}
+
+.radio-bt {
+    cursor: pointer;
+    accent-color: #1ee0a9;
+}
+
+.input {
     background-color: #2c2c2cb7;
+    width: 80%;
     border: none;
     height: 1.5rem;
-
+    padding: 0 0 0 1rem;
 }
-.add-btn{
+
+.btnC{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.add-btn {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: #ffffff;
     background-color: #01976d;
     padding: 0.2rem 1.5rem 0.2rem 1.5rem;
     font-size: 1.2rem;
+    border: none;
     border-radius: 5px;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    background-color: #07b885;
+    cursor: pointer;
 }

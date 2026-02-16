@@ -24,16 +24,19 @@
         <div class="main-container">
             <div class="income-container">
                 <div class="income">
-                    <div class="heading">Balance</div>
-                    <div class="val" id="balance">$ 100</div>
+                    <div class="heading">Income</div>
+                    <i class="fa-solid fa-indian-rupee-sign symbol"></i>
+                    <div class="val" id="income">0.00</div>
                 </div>
                 <div class="income">
-                    <div class="heading">Income</div>
-                    <div class="val" id="income">$ 100</div>
+                    <div class="heading">Balance</div>
+                    <i class="fa-solid fa-indian-rupee-sign symbol"></i>
+                    <div class="val" id="balance">0.00</div>
                 </div>
                 <div class="income">
                     <div class="heading">Expenses</div>
-                    <div class="val" id="expenses">$ 100</div>
+                    <i class="fa-solid fa-indian-rupee-sign symbol"></i>
+                    <div class="val" id="expenses">0.00</div>
                 </div>
             </div>
             <div class="chart-container">
@@ -44,20 +47,34 @@
         </div>
         <div class="feature">
             <div class="transactions">
-
                 <div class="heading2">Transactions history</div>
+                
             </div>
             <div class="add">
                 <div class="container">
                     <div class="heading2">Add transactions</div>
                 </div>
-                <div class="inputs">
-                    <div class="heading-3">Add desciption</div>
-                    <input type="text" class="input" placeholder="Enter desciption" id="description">
-                    <div class="heading-3">Enter amount</div>
-                    <input type="text" class="input" placeholder="Enter amount" id="amount">
-                </div>
-                <div class="add-btn">Add</div>
+                <form action="" class="inputs">
+                    <div class="inputEl">
+
+                        <div class="heading-3">Add description</div>
+                        <input type="text" class="input" placeholder="Enter description" id="description" required>
+
+                        <div class="heading-3">Enter amount</div>
+                        <input type="number" class="input" placeholder="Enter amount" id="amount" required>
+
+                        <div class="radio-btns">
+                            <div class="type">Transaction Type</div>
+                            <input type="radio" name="transaction-type" value="income" class="radio-bt" required>
+                            income
+                            <input type="radio" name="transaction-type" value="expense" class="radio-bt" required>
+                            expense
+                        </div>
+                    </div>
+                    <div class="btnC"><button class="add-btn">Add</button></div>
+
+                </form>
+
             </div>
         </div>
     </main>
