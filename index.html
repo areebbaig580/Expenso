@@ -23,17 +23,17 @@
     <main>
         <div class="main-container">
             <div class="income-container">
-                <div class="income">
+                <div class="income-box">
                     <div class="heading">Income</div>
                     <i class="fa-solid fa-indian-rupee-sign symbol"></i>
                     <div class="val" id="income">0.00</div>
                 </div>
-                <div class="income">
+                <div class="income-box">
                     <div class="heading">Balance</div>
                     <i class="fa-solid fa-indian-rupee-sign symbol"></i>
                     <div class="val" id="balance">0.00</div>
                 </div>
-                <div class="income">
+                <div class="income-box">
                     <div class="heading">Expenses</div>
                     <i class="fa-solid fa-indian-rupee-sign symbol"></i>
                     <div class="val" id="expenses">0.00</div>
@@ -41,6 +41,22 @@
             </div>
             <div class="chart-container">
                 <canvas id="myChart" class="chart"></canvas>
+                <div class="colorCardsCont">
+                    <div class="colorCard">
+                        <div class="color iColor"></div>
+                        <div class="colorname">Income</div>
+                    </div>
+                    <div class="colorCard">
+                        <div class="color bColor"></div>
+                        <div class="colorname">Balance</div>
+                    </div>
+                    <div class="colorCard">
+                        <div class="color eColor"></div>
+                        <div class="colorname">Expense</div>
+                    </div>
+
+                    
+                </div>
             </div>
         </div>
 
@@ -48,7 +64,7 @@
         <div class="feature">
             <div class="transactions">
                 <div class="heading2">Transactions history</div>
-                
+                <div class="th-cards"></div>
             </div>
             <div class="add">
                 <div class="container">
