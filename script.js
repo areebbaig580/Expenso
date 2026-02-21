@@ -8,29 +8,34 @@ const btn = document.querySelector('.add-btn');
 let allTransactions = JSON.parse(localStorage.getItem('transaction')) || [];
 updateUi();
 updateChart();
+transactionCard();
 
 btn.addEventListener('click', (evt) => {
   const trType = document.querySelector('input[name= "transaction-type"]:checked');
-  let inc = parseInt(income.innerHTML);
   let date = new Date();
   let today = date.toISOString().split('T')[0];
   let type = trType.value;
   let desc = description.value;
   let amt = parseInt(amount.value);
 
+  let allTransaction = JSON.parse(localStorage.getItem("transaction")) || [];
+  let i = allTransaction.length;
+
   const transaction = {
+    id: i,
     description: desc,
     amount: amt,
     date: today,
     type: type,
+
   }
 
-  let allTransaction = JSON.parse(localStorage.getItem("transaction")) || [];
   allTransaction.push(transaction);
 
   localStorage.setItem("transaction", JSON.stringify(allTransaction));
 
   updateUi();
+  transactionCard();
   updateChart();
 
   description.value = '';
@@ -51,6 +56,58 @@ function saveTransactions() {
     }
   }
   return { income, expenses }
+}
+function transactionCard() {
+  let alltransaction = JSON.parse(localStorage.getItem('transaction')) || [];
+  const tCardContainer = document.querySelector('.th-cards');
+
+  tCardContainer.innerHTML = '';
+
+  const notcard = `
+    <div class="noTC">
+        <div class="noT">No transaction yet</div>
+    </div>`
+  if (alltransaction.length === 0) {
+    tCardContainer.innerHTML = notcard;
+    return;
+  }
+
+
+  let allcard = '';
+  for (let transaction of alltransaction.reverse()) {
+    const card =
+      `<div class="transaction-history  ${transaction.type}">
+          <div class="section">
+             <div class="detail">Description</div>
+             <div class="descr">${transaction.description}</div>
+             <div class="detail" id="type">${transaction.type}</div>
+          </div>
+          <div class="section">
+             <div class="detail">Amount</div>
+             <div class="right-elem">
+                <div class="amt"><i class="fa-solid fa-indian-rupee-sign symbol2"></i> ${transaction.amount}</div>
+                <div class="delt-btn" onclick="deleteTransaction(${transaction.id})"><i class="fa-solid fa-circle-xmark"></i></div>
+          
+             </div>
+             <div class="detail" id="date">${transaction.date}</div>
+           </div>
+       </div>`;
+
+    allcard += card;
+  }
+  tCardContainer.innerHTML = allcard;
+
+}
+
+function deleteTransaction(id) {
+  console.log(`delt btn was clicked of id ${id}`);
+  let allTransaction = JSON.parse(localStorage.getItem('transaction')) || [];
+
+  allTransaction = allTransaction.filter(s => s.id !== id);
+  localStorage.setItem('transaction', JSON.stringify(allTransaction));
+
+  transactionCard();
+  updateUi();
 }
 
 function updateUi() {
@@ -82,7 +139,7 @@ function updateChart() {
   const ctx = document.getElementById('myChart');
   let inc = localStorage.getItem("income");
   let exp = localStorage.getItem("expense");
-  let bal = localStorage.getItem("balance"); 
+  let bal = localStorage.getItem("balance");
 
   new Chart(ctx, {
     type: 'doughnut',
@@ -90,7 +147,7 @@ function updateChart() {
       labels: ['Balance', 'Expenses', 'Income'],
       datasets: [{
         data: [bal, exp, inc],
-        backgroundColor: ['#1ee0a9', '#5fbca3', '#0f684a']
+        backgroundColor: ['#1ee0a9', '#cb7c31', '#b0643c']
       }]
     },
     options: {
