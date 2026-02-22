@@ -1,0 +1,77 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    max-width: 100%;
+    color: white;
+}
+
+body {
+    background-color: rgb(18, 18, 18);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-box{
+    height: 3rem;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(23, 23, 23);
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.heading{
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1ee0a9;
+}
+
+.symbol{
+    margin-right: 1rem;
+    color: #afafaf;
+}
+
+.symbol:hover{
+    color: #e7e7e7;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.chart-container{
+    height: 50vh;
+    width: 60%;
+    background-color: rgb(23, 23, 23);
+    border-radius: 5px;
+}
+
+.transactions-details{
+    width: 40%;
+    height: 15vh;
+    background-color: rgb(23, 23, 23);
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.history{
+    height: 50vh;
+    width: 60%;
+    background-color: rgb(23, 23, 23);
+    margin-top: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
