@@ -7,44 +7,44 @@
 }
 
 body {
-    background-color: rgb(18, 18, 18);
+    background-color: black;
 }
 
-header{
+header {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.heading-box{
+.heading-box {
     height: 3rem;
     width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(23, 23, 23);
+    background-color: #1b1a1ab7;
     margin-top: 1rem;
     border-radius: 5px;
 }
 
-.heading{
+.heading {
     margin-left: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #1ee0a9;
 }
 
-.symbol{
+.symbol {
     margin-right: 1rem;
     color: #afafaf;
 }
 
-.symbol:hover{
+.symbol:hover {
     color: #e7e7e7;
 }
 
-main{
+main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -52,26 +52,168 @@ main{
     margin-top: 1rem;
 }
 
-.chart-container{
+.chart-container {
     height: 50vh;
     width: 60%;
-    background-color: rgb(23, 23, 23);
+    background-color: #1b1a1ab7;
     border-radius: 5px;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.transactions-details{
-    width: 40%;
+.transactions-details {
+    width: 30%;
     height: 15vh;
-    background-color: rgb(23, 23, 23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1b1a1ab7;
     margin-top: 1rem;
     border-radius: 5px;
 }
 
-.history{
+.box {
+    width: 45%;
+    height: 70%;
+    background-color: #2c2c2cb7;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.icon1 {
+    font-size: 1.5rem;
+    color: #1ee0a9;
+}
+
+.icon2 {
+    font-size: 1.5rem;
+    color: #e51c1c;;
+}
+
+.icon3 {
+    font-size: 1rem;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.type {
+    font-size: 0.9rem;
+    color: #b6b6b6;
+}
+
+.history {
     height: 50vh;
     width: 60%;
-    background-color: rgb(23, 23, 23);
+    background-color: #1b1a1ab7;
     margin-top: 1rem;
     border-radius: 5px;
     margin-bottom: 2rem;
+}
+
+.history-cards {
+    width: 100%;
+    max-height: 40vh;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.heading2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1ee0a9;
+    padding: 1rem 0 0.5rem 1rem
+}
+.top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.filter{
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+.filter-det{
+    color: #afafaf;
+}
+
+.dropdown{
+    background-color: #1b1a1ab7;
+    border-radius: 5px;
+    outline: none;
+}
+
+.dropdown:hover{
+    transform: translateY(-2px);
+}
+.chart{
+    position: absolute;
+    top: 3rem;
+}
+
+.card {
+    width: 90%;
+    height: 4rem;
+    background-color: #2c2c2cb7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.card:hover{
+    background-color: #393939b7;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #b6b6b6;
+}
+
+.description {
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.income {
+    color: #1ee0a9;
+    font-size: 1.5rem;
+}
+
+.income-sign{
+    color: #1ee0a9;
+    font-size: 1rem;
+}
+.expense {
+    color: #e51c1c;
+    font-size: 1.5rem;
+}
+.expense-sign{
+    color: #e51c1c;
+    font-size: 1rem;
+}
+
+.history-cards::-webkit-scrollbar {
+    width: 8px;
+
+}
+
+.history-cards::-webkit-scrollbar-thumb {
+    background-color: #414141;
+    border-radius: 6px;
+}
+
+.history-cards::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
 }
