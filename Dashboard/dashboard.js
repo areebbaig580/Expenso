@@ -2,14 +2,18 @@ const back = document.querySelector('.symbol');
 const income = document.getElementById('income');
 const expense = document.getElementById('expense');
 const ctx = document.getElementById('myChart');
+const filterSel = document.getElementById('filter-type');
 
 updateUi();
 history();
 
-
 back.addEventListener('click', (evt) => {
     window.location.href = "../index.html";
-})
+});
+
+filterSel.addEventListener('change', (evt) => {
+    history(evt.target.value);
+});
 
 function updateUi() {
     let inc = localStorage.getItem("income");
@@ -18,9 +22,9 @@ function updateUi() {
     income.innerHTML = `<i class="fa-solid fa-indian-rupee-sign icon3"></i> ${inc}`
     expense.innerHTML = `<i class="fa-solid fa-indian-rupee-sign icon3"></i> ${exp}`
 
-}
+};
 
-function history() {
+function history(filterType = 'All') {
     let alltransaction = JSON.parse(localStorage.getItem('transaction')) || [];
     const historyCards = document.querySelector(".history-cards");
 
@@ -33,9 +37,14 @@ function history() {
         historyCards.innerHTML = notcard;
         return;
     }
+    let reverseArr = [...alltransaction].reverse();
+    if (filterType !== 'All') {
+        reverseArr = reverseArr.filter(s => s.type === filterType);
+    }
 
     let allcard = '';
-    for (let transaction of alltransaction.reverse()) {
+
+    for (let transaction of reverseArr) {
         const card =
             `<div class="card">
                     <div class="left">
@@ -47,12 +56,13 @@ function history() {
 
         allcard += card;
     }
+
     historyCards.innerHTML = allcard;
-}
+};
 
 function dailyTransactions() {
-    let alltransaction = JSON.parse(localStorage.getItem('transaction'))||[];
-    
+    let alltransaction = JSON.parse(localStorage.getItem('transaction')) || [];
+
     let today = new Date();
     let dayOfWeek = today.getDay();
     let daysFromMonday = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
@@ -71,23 +81,22 @@ function dailyTransactions() {
         let dateString = currentDay.toISOString().split('T')[0];
 
         let dayTransactions = alltransaction.filter(s => s.date === dateString);
-
-        let totalIncome = 0;
         for (let transaction of dayTransactions) {
-            if(transaction.type === "income"){
+            if (transaction.type === "income") {
                 dailyIncome[i] += transaction.amount;
-            }else if(transaction.type === "expense"){
+            } else if (transaction.type === "expense") {
                 dailyExpense[i] += transaction.amount;
             }
-
         }
-
     }
+    return { dailyIncome, dailyExpense }
+};
 
-    return {dailyIncome, dailyExpense}
-}
+function weeklyTransaction(){
+    //to- do 
+};
+
 let transaction = dailyTransactions();
-console.log(transaction.dailyExpense);
 
 new Chart(ctx, {
     type: 'bar',
