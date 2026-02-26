@@ -9,8 +9,8 @@ It enables users to manage transactions, analyze spending patterns, and visualiz
 <h2>📸 Preview</h2>
 
 <p>
-<img src="assets/preview1.png" width="49%">
-<img src="assets/preview2.png" width="49%">
+<img src="assets/preview1.png" >
+<img src="assets/preview2.png" >
 </p>
 
 <h2>🚀 Key Features</h2>
