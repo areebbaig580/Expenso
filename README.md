@@ -21,6 +21,7 @@ It enables users to manage transactions, analyze spending patterns, and visualiz
     <li>Persistent data storage using Local Storage</li>
     <li>Doughnut chart visualizing Income, Expenses, and Balance</li>
     <li>Monthly transaction filtering</li>
+    <li>Yearly transaction filtering</li>
     <li>Weekly transaction graph visualization</li>
     <li>Transaction history filters (All / Income / Expenses)</li>
 </ul>
@@ -30,6 +31,7 @@ It enables users to manage transactions, analyze spending patterns, and visualiz
     <li>Income vs Expense breakdown</li>
     <li>Weekly financial trend graph</li>
     <li>Monthly transaction filtering system</li>
+    <li>Yearly transaction filtering system</li>
 </ul>
 
 <h2>🛠 Technologies Used</h2>
