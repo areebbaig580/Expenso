@@ -134,6 +134,32 @@ function weeklyTransaction(){
     return {weeklyIncome, weeklyExpense}
 };
 
+function yearlyTransaction(){
+    let alltransaction = JSON.parse(localStorage.getItem('transaction')) || [];
+
+    let today = new Date();
+    let currYear = today.getFullYear();
+
+    let monthlyIncome = [0,0,0,0,0,0,0,0,0,0,0,0];
+    let monthlyExpense = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+    for(let transaction of alltransaction){
+        let transactionDate = new Date(transaction.date);
+
+        if(transactionDate.getFullYear() === currYear){
+            let month = transactionDate.getMonth();
+            weekIndex = month;
+
+           if (transaction.type === "income"){
+            monthlyIncome[weekIndex] += transaction.amount;
+           } else if (transaction.type === "expense"){
+            monthlyExpense[weekIndex] += transaction.amount;
+           }
+        }
+    }
+    return {monthlyIncome , monthlyExpense}
+};
+
 let myChart;
 myChart = new Chart(ctx, {
     type: 'bar',
@@ -171,6 +197,7 @@ myChart = new Chart(ctx, {
 function updateChart(selected){
     let daysData = dailyTransactions();
     let weekData = weeklyTransaction();
+    let monthData = yearlyTransaction();
     let labelData = [];
     let incomeData = [];
     let expenseData = [];
@@ -183,6 +210,10 @@ function updateChart(selected){
         labelData = ["Week 1" ,"Week 2" ,"Week 3" ,"Week 4"];
         incomeData = weekData.weeklyIncome;
         expenseData = weekData.weeklyExpense;
+    }else if(selected === "Yearly"){
+        labelData = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        incomeData = monthData.monthlyIncome;
+        expenseData = monthData.monthlyExpense;
     }
 
     myChart.data.labels = labelData;
