@@ -3,6 +3,7 @@ const income = document.getElementById('income');
 const expense = document.getElementById('expense');
 const ctx = document.getElementById('myChart');
 const filterSel = document.getElementById('filter-type');
+const filter = document.getElementById('filter'); 
 
 updateUi();
 history();
@@ -14,6 +15,10 @@ back.addEventListener('click', (evt) => {
 filterSel.addEventListener('change', (evt) => {
     history(evt.target.value);
 });
+
+filter.addEventListener('change', (evt)=>{
+    updateChart(evt.target.value);
+})
 
 function updateUi() {
     let inc = localStorage.getItem("income");
@@ -93,24 +98,56 @@ function dailyTransactions() {
 };
 
 function weeklyTransaction(){
-    //to- do 
+    let alltransaction = JSON.parse(localStorage.getItem('transaction')) || [];
+
+    let today = new Date();
+    let currMonth = today.getMonth();
+    let currYear = today.getFullYear();
+    let totDays = new Date(currYear, currMonth+1, 0).getDate();
+
+    let weeklyIncome = [0, 0, 0, 0];
+    let weeklyExpense = [0, 0, 0, 0];
+
+    for(let transaction of alltransaction){
+        let transactionDate = new Date(transaction.date);
+
+        if(transactionDate.getFullYear() === currYear && transactionDate.getMonth() === currMonth){
+            let day = transactionDate.getDate();
+
+            if(day<=7){
+                weekIndex = 0
+            }else if (day <= 14) {
+                weekIndex = 1; 
+            } else if (day <= 21) {
+                weekIndex = 2; 
+            } else {
+                weekIndex = 3; 
+            }
+
+           if (transaction.type === "income"){
+            weeklyIncome[weekIndex] += transaction.amount;
+           } else if (transaction.type === "expense"){
+            weeklyExpense[weekIndex] += transaction.amount;
+           }
+        }
+    }
+    return {weeklyIncome, weeklyExpense}
 };
 
-let transaction = dailyTransactions();
-
-new Chart(ctx, {
+let myChart;
+myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', `Sat`, `Sun`],
         datasets: [
             {
                 label: 'Income',
-                data: transaction.dailyIncome,
+                data: [],
                 backgroundColor: '#1ee0a9'
             },
             {
                 label: 'Expense',
-                data: transaction.dailyExpense,
+                data: [],
                 backgroundColor: '#31e0bd'
             }]
     },
@@ -129,4 +166,28 @@ new Chart(ctx, {
             }
         }
     }
-});
+});   
+
+function updateChart(selected){
+    let daysData = dailyTransactions();
+    let weekData = weeklyTransaction();
+    let labelData = [];
+    let incomeData = [];
+    let expenseData = [];
+
+    if(selected === "Daily"){
+        labelData = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', `Sat`, `Sun`];
+        incomeData = daysData.dailyIncome;
+        expenseData = daysData.dailyExpense
+    }else if(selected === "Monthly"){
+        labelData = ["Week 1" ,"Week 2" ,"Week 3" ,"Week 4"];
+        incomeData = weekData.weeklyIncome;
+        expenseData = weekData.weeklyExpense;
+    }
+
+    myChart.data.labels = labelData;
+    myChart.data.datasets[0].data = incomeData;
+    myChart.data.datasets[1].data = expenseData;
+    myChart.update()
+}
+updateChart('Daily');
