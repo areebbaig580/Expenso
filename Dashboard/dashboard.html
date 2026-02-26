@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="deasboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="heading-box">
+            <div class="heading">Dashboard</div>
+            <i class="fa-solid fa-arrow-right-from-bracket symbol"></i>
+        </div>
+    </header>
+    <main>
+        <div class="chart-container">
+            <div class="top">
+                <div class="heading2">Insights</div>
+                <div class="filter">
+                    <label for="filter" class="filter-det">Filter Transactions </label>
+                    <select id="filter" name="filter" class="dropdown">
+                        <option value="Daily">Week</option>
+                        <option value="Monthly">Month</option>
+                        <option value="Yearly">Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <canvas id="myChart" class="chart"></canvas>
+        </div>
+        <div class="transactions-details">
+            <div class="box">
+                <div class="left-itm"><i class="fa-solid fa-coins icon1"></i></div>
+                <div class="right-itm">
+                    <div class="value" id="income">0</div>
+                    <div class="type">income</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="left-itm"><i class="fa-solid fa-file-invoice icon2"></i></div>
+                <div class="right-itm">
+                    <div class="value" id="expense">0</div>
+                    <div class="type">expense</div>
+                </div>
+            </div>
+        </div>
+        <div class="history">
+           <div class="top">
+                <div class="heading2">History</div>
+                <div class="filter">
+                    <label for="filter" class="filter-det">Filter Transactions Type </label>
+                    <select id="filter-type" name="filter" class="dropdown">
+                        <option value="All">All</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-btns">
+
+            </div>
+            <div class="history-cards"></div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
