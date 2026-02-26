@@ -32,6 +32,10 @@ body {
     gap: 3rem;
 }
 
+.dashSymbol{
+    font-size: 0.9rem;
+}
+
 .nav-links a {
     text-decoration: none;
     font-weight: 600;
@@ -286,6 +290,10 @@ main {
     border-radius: 5px;
 }
 
+.transaction-history:hover {
+    background-color: #393939b7;
+}
+
 .descr::first-letter{
     text-transform: uppercase;
 }
@@ -319,9 +327,6 @@ main {
     border-right: 4px solid rgb(192, 51, 51);
 }
 
-.transaction-history:hover {
-    background-color: #393939b7;
-}
 
 .symbol2 {
     font-size: 0.8rem;
