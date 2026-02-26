@@ -72,7 +72,7 @@ function transactionCard() {
     return;
   }
 
-
+  let cardno = 0;
   let allcard = '';
   for (let transaction of alltransaction.reverse()) {
     const card =
@@ -93,14 +93,16 @@ function transactionCard() {
            </div>
        </div>`;
 
-    allcard += card;
+    cardno++;
+    if (cardno<=5){
+      allcard += card;
+    }
   }
   tCardContainer.innerHTML = allcard;
 
 }
 
 function deleteTransaction(id) {
-  console.log(`delt btn was clicked of id ${id}`);
   let allTransaction = JSON.parse(localStorage.getItem('transaction')) || [];
 
   allTransaction = allTransaction.filter(s => s.id !== id);
